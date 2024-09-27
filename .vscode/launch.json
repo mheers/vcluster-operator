@@ -1,0 +1,74 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Server",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}",
+            "args": [
+                "server",
+            ],
+            "env": {
+                "VCLUSTER_OPERATOR_K8S_INCLUSTER": "false",
+                "VCLUSTER_OPERATOR_PORT": "8080",
+                "VCLUSTER_OPERATOR_ADMIN_USER": "root",
+                "VCLUSTER_OPERATOR_ADMIN_PASSWORD": "admin",
+                "VCLUSTER_OPERATOR_SECRET_KEY": "secret key",
+            }
+        },
+        {
+            "name": "Login",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}",
+            "args": [
+                "login",
+                "--url",
+                "http://localhost:8080",
+                "--username",
+                "root",
+                "--password",
+                "admin"
+            ]
+        },
+        {
+            "name": "Install",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}",
+            "args": [
+                "install",
+                "--admin-username",
+                "root",
+                "--admin-password",
+                "admin",
+                "--image-pull-policy",
+                "Never",
+            ]
+        },
+        {
+            "name": "UnInstall",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}",
+            "args": [
+                "uninstall",
+            ]
+        },
+        {
+            "name": "Vault: Attach to Process",
+            "type": "go",
+            "request": "attach",
+            "mode": "local",
+            "processId": 0
+        }
+    ]
+}
